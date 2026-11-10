@@ -5,7 +5,6 @@ class Solution {
 
         while (left < right) {
             int sum = numbers[left] + numbers[right];
-            //System.out.println(String.format("%d %d %d ", left, right, sum));
 
             if (sum == target) {
                 return new int[]{left + 1, right + 1};
@@ -16,6 +15,6 @@ class Solution {
             }
         }
 
-        return new int[2];
+        return new int[0];
     }
 }
