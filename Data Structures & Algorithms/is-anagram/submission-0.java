@@ -1,17 +1,11 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) return false;
         int[] memory = new int[26];
 
         for (int i = 0; i < s.length(); i++) {
-            char chr = s.charAt(i);
-            memory[chr - 'a']++;
-            //System.out.println(String.format("value at chr=%c is %d", chr, memory[chr - 'a']));
-        }
-
-        for (int i = 0; i < t.length(); i++) {
-            char chr = t.charAt(i);
-            memory[chr - 'a']--;
-            //System.out.println(String.format("value at chr=%c is %d", chr, memory[chr - 'a']));
+            memory[s.charAt(i) - 'a']++;
+            memory[t.charAt(i) - 'a']--;
         }
 
         for (int i = 0; i < 26; i++) {
