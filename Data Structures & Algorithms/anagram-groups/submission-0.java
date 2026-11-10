@@ -3,17 +3,20 @@ class Solution {
         Map<String, List<String>> memory = new HashMap<>();
 
         for (String str : strs) {
-            char[] charArr = str.toCharArray();
-            Arrays.sort(charArr);
-            String key = new String(charArr);
+            char[] chr = str.toCharArray();
+            Arrays.sort(chr);
 
-            memory.computeIfAbsent(key, k -> new ArrayList<>()).add(str);
+            if (!memory.containsKey(String.valueOf(chr))) {
+                memory.put(String.valueOf(chr), new ArrayList<>());
+            }
+
+            memory.get(String.valueOf(chr)).add(str);
         }
 
         List<List<String>> result = new ArrayList<>();
 
-        for (List<String> value : memory.values()) {
-            result.add(value);
+        for (List<String> res : memory.values()) {
+            result.add(res);
         }
 
         return result;
